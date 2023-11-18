@@ -19,7 +19,7 @@ if($_SESSION["perfil"] == "Vendedor"){
     
     <h1>
       
-      Administrar productos
+      Administrar productos en rojo
     
     </h1>
 
@@ -27,7 +27,7 @@ if($_SESSION["perfil"] == "Vendedor"){
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar productos</li>
+      <li class="active">Administrar productos en rojo</li>
     
     </ol>
 
@@ -44,16 +44,13 @@ if($_SESSION["perfil"] == "Vendedor"){
           Agregar producto
 
         </button>
-        <button class="btn btn-danger"  >
-          
-        <a href="productos-red" class="pred"></i>Ver Productos rojos</a>
-        </button>
+       
 
       </div>
       
       <div class="box-body">
         
-       <table class="table table-bordered table-striped dt-responsive tablaProductos" width="100%">
+       <table class="table table-bordered table-striped dt-responsive tablaProductosRED" width="100%">
          
         <thead>
          

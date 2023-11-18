@@ -35,6 +35,36 @@ class ModeloProductos{
 		$stmt = null;
 
 	}
+/*=============================================
+	MOSTRAR PRODUCTOS EN ROJO
+	=============================================*/
+	static public function mdlMostrarProductosRED($tabla, $item, $valor, $orden){
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY id DESC");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetch();
+
+		}else{
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla where stock <= stock_t/100*25 ORDER BY $orden DESC");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
 
 	/*=============================================
 	REGISTRO DE PRODUCTO

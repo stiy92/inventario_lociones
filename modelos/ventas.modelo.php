@@ -198,5 +198,59 @@ class ModeloVentas{
 
 	}
 
+	/*=============================================
+	SUMAR EL TOTAL DE VENTAS CREDITOS
+	=============================================*/
+
+	static public function mdlSumaTotalCreditos($tabla){	
+
+		$stmt = Conexion::conectar()->prepare("SELECT SUM(neto) as total FROM $tabla where metodo_pago= 'crédito-0'");
+
+		$stmt -> execute();
+
+		return $stmt -> fetch();
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+	
+	/*=============================================
+	SUMAR EL TOTAL DE VENTAS POR DIA EFECTIVO
+	=============================================*/
+
+	static public function mdlSumaTotalVentasdia($tabla){	
+
+		$stmt = Conexion::conectar()->prepare("SELECT SUM(neto) as total FROM $tabla where DATE(fecha) >= DATE( NOW()) and metodo_pago= 'Efectivo'" );
+
+		$stmt -> execute();
+
+		return $stmt -> fetch();
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
+	/*=============================================
+	SUMAR EL TOTAL DE VENTAS POR DIA CREDITO
+	=============================================*/
+
+	static public function mdlSumaTotalVentascreditodia($tabla){	
+
+		$stmt = Conexion::conectar()->prepare("SELECT SUM(neto) as total FROM $tabla where DATE(fecha) >= DATE( NOW())and metodo_pago= 'crédito-0'" );
+
+		$stmt -> execute();
+
+		return $stmt -> fetch();
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
 	
 }

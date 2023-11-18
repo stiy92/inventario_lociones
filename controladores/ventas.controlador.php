@@ -683,6 +683,47 @@ class ControladorVentas{
 	}
 
 	/*=============================================
+	SUMA TOTAL CREDITOS
+	=============================================*/
+
+	static public function ctrSumaTotalCreditos(){
+
+		$tabla = "ventas";
+
+		$respuesta = ModeloVentas::mdlSumaTotalCreditos($tabla);
+
+		return $respuesta;
+
+	}
+
+	/*=============================================
+	SUMA TOTAL VENTAS EL DIA ACTUAL
+	=============================================*/
+
+	static public function ctrSumaTotalVentasdia(){
+
+		$tabla = "ventas";
+
+		$respuesta = ModeloVentas::mdlSumaTotalVentasdia($tabla);
+
+		return $respuesta;
+
+	}
+
+	/*=============================================
+	SUMA TOTAL VENTAS EL DIA ACTUAL credito
+	=============================================*/
+
+	static public function ctrSumaTotalVentasdiacredito(){
+
+		$tabla = "ventas";
+
+		$respuesta = ModeloVentas::mdlSumaTotalVentascreditodia($tabla);
+
+		return $respuesta;
+
+	}
+	/*=============================================
 	DESCARGAR XML
 	=============================================*/
 
